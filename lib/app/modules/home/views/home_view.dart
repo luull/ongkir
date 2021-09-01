@@ -13,7 +13,7 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ongkos Kirim Indonesia'),
+        title: Text('Cek Ongkir Indonesia'),
         backgroundColor: Colors.red[800],
         centerTitle: true,
       ),
@@ -21,6 +21,10 @@ class HomeView extends GetView<HomeController> {
         child: ListView(
           padding: EdgeInsets.all(20),
           children: [
+            Container(
+              child: new Image.asset('assets/images/deliv.png'),
+              alignment: Alignment.center,
+            ),
             Provinsi(tipe: "asal"),
             Obx(
               () => controller.hiddenCityAsal.isTrue
@@ -64,14 +68,17 @@ class HomeView extends GetView<HomeController> {
                 ),
               ),
             ),
-            Obx(() => controller.hiddenButton.isTrue
-                ? SizedBox()
-                : ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 20),
-                        primary: Colors.red[800]),
-                    onPressed: () => controller.ongkosKirim(),
-                    child: Text("CEK ONGKOS")))
+            Obx(
+              () => controller.hiddenButton.isTrue
+                  ? SizedBox()
+                  : ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(vertical: 20),
+                          primary: Colors.red[800]),
+                      onPressed: () => controller.ongkosKirim(),
+                      child: Text("CEK ONGKOS"),
+                    ),
+            )
           ],
         ),
       ),

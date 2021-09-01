@@ -7,7 +7,7 @@ import 'app/routes/app_pages.dart';
 void main() {
   runApp(
     GetMaterialApp(
-      title: "Ongkos Kirim Indonesia",
+      title: "Cek Ongkir Indonesia",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
     ),
